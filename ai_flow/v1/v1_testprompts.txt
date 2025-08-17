@@ -1,3 +1,11 @@
+All of these pormpts work perfectly in the v1 using gemini 2.5 Flash
+
+How many laptops are in stock?
+
 what is the most expensive desktop?
 
+I want to know the average cost of mouse items
+
 What is the total stock of products of the brand Huawei?
+
+If I sell all of the cables, how much will i get?

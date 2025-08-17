@@ -1,0 +1,638 @@
+app:
+  description: This ChatBot allows you to consult about inventory and get information
+    about products
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: ChatBot Makers Tech
+  use_icon_as_answer_icon: false
+dependencies: []
+kind: app
+version: 0.3.1
+workflow:
+  conversation_variables: []
+  environment_variables:
+  - description: name of the supabase inventory table
+    id: b1e69dd0-2653-40e4-95aa-92720f6d068a
+    name: table_name
+    selector:
+    - env
+    - table_name
+    value: inventory
+    value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: agent
+      id: 1711528708197-source-1755458460371-target
+      source: '1711528708197'
+      sourceHandle: source
+      target: '1755458460371'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: agent
+        targetType: answer
+      id: 1755458460371-source-1755461812937-target
+      source: '1755458460371'
+      sourceHandle: source
+      target: '1755461812937'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: Define the initial parameters for launching a workflow
+        selected: false
+        title: Start
+        type: start
+        variables: []
+      height: 97
+      id: '1711528708197'
+      position:
+        x: 143.78571428571433
+        y: 1275.9285714285713
+      positionAbsolute:
+        x: 143.78571428571433
+        y: 1275.9285714285713
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        agent_parameters:
+          instruction:
+            type: constant
+            value: 'You are Makers Tech Inventory Assistant, a friendly and professional
+              AI that helps users explore and analyze the company’s product inventory.
+              Greet the user warmly at the start of each conversation. After every
+              answer, suggest a possible next step or mention another type of question
+              the user can ask.
+
+              Database
+
+              All data is in the inventory table with these columns:
+
+              id (INT)
+
+              name (TEXT)
+
+              brand (TEXT) – valid values: Apple, Dell, HP, Lenovo, Asus, Acer, Samsung,
+              LG, Sony, Logitech, Razer, Corsair, HyperX, Kingston, Seagate, Western
+              Digital, NVIDIA, AMD, Intel, TP-Link, Netgear, Canon, Epson, Xiaomi,
+              Huawei, MSI, Gigabyte
+
+              category (TEXT) – valid values: Laptop, Desktop, Monitor, Keyboard,
+              Mouse, Headphones, Smartphone, Tablet, Smartwatch, Printer, Router,
+              SSD, HDD, GPU, CPU, Motherboard, Power Supply, Case, Webcam, Microphone,
+              Speakers, Docking Station, Charger, Cable, Chair, Gaming Console, VR
+              Headset
+
+              price (FLOAT, USD)
+
+              stock (INT)
+
+              features (TEXT)
+
+              Tools
+
+              SQL Execute: use for ranges, ordering, or aggregations.
+
+              Get Table Schema: use if you need to confirm column names or data types.
+
+              WolframAlpha: always use for calculations (average, sum, min, max, percentages,
+              ratios, variance). First retrieve raw data with SQL, then send it to
+              WolframAlpha.
+
+              Instructions
+
+              Read the user’s request and identify what is needed.
+
+              Choose the right tool based on the type of query.
+
+              Execute the tool and review results. If SQL query fails, use Get Table
+              Schema tool.
+
+              Answer in clear, concise natural language.
+
+              Always be professional, but also approachable and supportive. Always
+              use WolframAlpha for math operations.
+
+              At the end of each answer, suggest what else the user can explore (for
+              example: “Would you like me to show you the most expensive option too?”).
+
+              Response Examples
+
+              User: What is the cheapest tablet?
+
+              Assistant: The cheapest tablet is Samsung Tablet Pro 1045, priced at
+              129.99 USD. You might also want to see which brand has the widest variety
+              of tablets.
+
+              User: What is the average price of mouses?
+
+              Assistant: The average price of mouses is 57.43 USD, based on all products
+              in inventory. If you like, I can also show you the cheapest or most
+              expensive mouse available.'
+          maximum_iterations:
+            type: constant
+            value: 5
+          model:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: gemini-2.5-flash
+              model_type: llm
+              provider: langgenius/gemini/google
+              type: model-selector
+          query:
+            type: constant
+            value: '{{#sys.query#}}'
+          tools:
+            type: constant
+            value:
+            - enabled: true
+              extra:
+                description: WolframAlpha is a powerful computational knowledge engine.
+              parameters:
+                query:
+                  auto: 1
+                  value: null
+              provider_name: langgenius/wolframalpha/wolframalpha
+              provider_show_name: langgenius/wolframalpha/wolframalpha
+              schemas:
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: used for calculating
+                  ja_JP: used for calculating
+                  pt_BR: used for calculating
+                  zh_Hans: 用于计算最终结果
+                label:
+                  en_US: Query string
+                  ja_JP: Query string
+                  pt_BR: Query string
+                  zh_Hans: 计算语句
+                llm_description: a single query for calculating
+                max: null
+                min: null
+                name: query
+                options: []
+                placeholder: null
+                precision: null
+                required: true
+                scope: null
+                template: null
+                type: string
+              settings: {}
+              tool_description: WolframAlpha is a powerful computational knowledge
+                engine.
+              tool_label: WolframAlpha
+              tool_name: wolframalpha
+              type: builtin
+            - enabled: true
+              extra:
+                description: This tool is used to execute SQL in an existing database.
+              parameters:
+                db_uri:
+                  auto: 0
+                  value:
+                    type: mixed
+                    value: ''
+                query:
+                  auto: 1
+                  value: null
+              provider_name: hjlarry/database/database
+              provider_show_name: hjlarry/database/database
+              schemas:
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: The SQL query string.
+                  ja_JP: The SQL query string.
+                  pt_BR: The SQL query string.
+                  zh_Hans: SQL 查询语句。
+                label:
+                  en_US: SQL Query
+                  ja_JP: SQL Query
+                  pt_BR: SQL Query
+                  zh_Hans: SQL 查询语句
+                llm_description: The SQL query string.
+                max: null
+                min: null
+                name: query
+                options: []
+                placeholder: null
+                precision: null
+                required: true
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: Optional, Filling in this field will overwrite the database
+                    connection entered during authorization.
+                  ja_JP: Optional, Filling in this field will overwrite the database
+                    connection entered during authorization.
+                  pt_BR: Optional, Filling in this field will overwrite the database
+                    connection entered during authorization.
+                  zh_Hans: 选填，填写后将覆盖授权时填写的数据库连接。
+                label:
+                  en_US: DB URI
+                  ja_JP: DB URI
+                  pt_BR: DB URI
+                  zh_Hans: DB URI
+                llm_description: ''
+                max: null
+                min: null
+                name: db_uri
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: json
+                form: form
+                human_description:
+                  en_US: Choose the output format.
+                  ja_JP: Choose the output format.
+                  pt_BR: Choose the output format.
+                  zh_Hans: 选择输出格式。
+                label:
+                  en_US: Output format
+                  ja_JP: Output format
+                  pt_BR: Output format
+                  zh_Hans: 输出格式
+                llm_description: ''
+                max: null
+                min: null
+                name: format
+                options:
+                - icon: ''
+                  label:
+                    en_US: JSON
+                    ja_JP: JSON
+                    pt_BR: JSON
+                    zh_Hans: JSON
+                  value: json
+                - icon: ''
+                  label:
+                    en_US: CSV
+                    ja_JP: CSV
+                    pt_BR: CSV
+                    zh_Hans: CSV
+                  value: csv
+                - icon: ''
+                  label:
+                    en_US: YAML
+                    ja_JP: YAML
+                    pt_BR: YAML
+                    zh_Hans: YAML
+                  value: yaml
+                - icon: ''
+                  label:
+                    en_US: Markdown
+                    ja_JP: Markdown
+                    pt_BR: Markdown
+                    zh_Hans: Markdown
+                  value: md
+                - icon: ''
+                  label:
+                    en_US: Excel
+                    ja_JP: Excel
+                    pt_BR: Excel
+                    zh_Hans: Excel
+                  value: xlsx
+                - icon: ''
+                  label:
+                    en_US: HTML
+                    ja_JP: HTML
+                    pt_BR: HTML
+                    zh_Hans: HTML
+                  value: html
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: select
+              - auto_generate: null
+                default: null
+                form: form
+                human_description:
+                  en_US: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                  ja_JP: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                  pt_BR: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                  zh_Hans: '选填项。例如 {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    更多连接选项可参考 https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                label:
+                  en_US: DB Config Options
+                  ja_JP: DB Config Options
+                  pt_BR: DB Config Options
+                  zh_Hans: 数据库连接配置选项
+                llm_description: ''
+                max: null
+                min: null
+                name: config_options
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              settings:
+                config_options:
+                  value:
+                    type: mixed
+                    value: null
+                format:
+                  value:
+                    type: constant
+                    value: json
+              tool_description: This tool is used to execute SQL in an existing database.
+              tool_label: SQL Execute
+              tool_name: sql_execute
+              type: builtin
+            - enabled: true
+              extra:
+                description: get the table schema from the database.
+              parameters:
+                db_uri:
+                  auto: 0
+                  value:
+                    type: mixed
+                    value: null
+                tables:
+                  auto: 1
+                  value: null
+              provider_name: hjlarry/database/database
+              provider_show_name: hjlarry/database/database
+              schemas:
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: Specify which tables schema you want to get. If not specified,
+                    all tables will be used. Multi tables use comma to separate.
+                  ja_JP: Specify which tables schema you want to get. If not specified,
+                    all tables will be used. Multi tables use comma to separate.
+                  pt_BR: Specify which tables schema you want to get. If not specified,
+                    all tables will be used. Multi tables use comma to separate.
+                  zh_Hans: 指定想要哪些表的结构，如不指定，则使用所有表。多张表用半角逗号隔开。
+                label:
+                  en_US: Tables
+                  ja_JP: Tables
+                  pt_BR: Tables
+                  zh_Hans: 表
+                llm_description: Specify which tables schema you want to get. If not
+                  specified, all tables will be used. Multi tables use comma to separate.
+                max: null
+                min: null
+                name: tables
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: Optional, Filling in this field will overwrite the database
+                    connection entered during authorization.
+                  ja_JP: Optional, Filling in this field will overwrite the database
+                    connection entered during authorization.
+                  pt_BR: Optional, Filling in this field will overwrite the database
+                    connection entered during authorization.
+                  zh_Hans: 选填，填写后将覆盖授权时填写的数据库连接。
+                label:
+                  en_US: DB URI
+                  ja_JP: DB URI
+                  pt_BR: DB URI
+                  zh_Hans: DB URI
+                llm_description: ''
+                max: null
+                min: null
+                name: db_uri
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: secret-input
+              - auto_generate: null
+                default: null
+                form: form
+                human_description:
+                  en_US: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                  ja_JP: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                  pt_BR: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                  zh_Hans: '选填项。例如 {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    更多连接选项可参考 https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                label:
+                  en_US: DB Config Options
+                  ja_JP: DB Config Options
+                  pt_BR: DB Config Options
+                  zh_Hans: 数据库连接配置选项
+                llm_description: ''
+                max: null
+                min: null
+                name: config_options
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: null
+                form: form
+                human_description:
+                  en_US: Schema name. If `schema` is left empty, the database's default
+                    schema(like the `public` of postgresql) is used, else the named
+                    schema is searched
+                  ja_JP: Schema name. If `schema` is left empty, the database's default
+                    schema(like the `public` of postgresql) is used, else the named
+                    schema is searched
+                  pt_BR: Schema name. If `schema` is left empty, the database's default
+                    schema(like the `public` of postgresql) is used, else the named
+                    schema is searched
+                  zh_Hans: 数据库schema名称。如果 `schema` 留空，则使用数据库的默认schema(例如postgresql中的public)，否则使用指定的schema。
+                label:
+                  en_US: Schema
+                  ja_JP: Schema
+                  pt_BR: Schema
+                  zh_Hans: Schema
+                llm_description: ''
+                max: null
+                min: null
+                name: schema
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              settings:
+                config_options:
+                  value:
+                    type: mixed
+                    value: null
+                schema:
+                  value:
+                    type: mixed
+                    value: null
+              tool_description: get the table schema from the database.
+              tool_label: Get Table Schema
+              tool_name: table_schema
+              type: builtin
+        agent_strategy_label: FunctionCalling
+        agent_strategy_name: function_calling
+        agent_strategy_provider_name: langgenius/agent/agent
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          window:
+            enabled: false
+            size: 50
+        meta:
+          minimum_dify_version: 1.7.0
+          version: 0.0.2
+        output_schema: null
+        plugin_unique_identifier: langgenius/agent:0.0.23@baba5fd2631a535dcd85f070f8be1bdcfb02c46e1a0a830ad00d7bc846063de4
+        selected: true
+        title: Assistant
+        tool_node_version: '2'
+        type: agent
+      height: 197
+      id: '1755458460371'
+      position:
+        x: 471.8692443907753
+        y: 1275.9285714285713
+      positionAbsolute:
+        x: 471.8692443907753
+        y: 1275.9285714285713
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        answer: '{{#1755458460371.text#}}/'
+        desc: ''
+        selected: false
+        title: Answer
+        type: answer
+        variables: []
+      height: 103
+      id: '1755461812937'
+      position:
+        x: 747.8660479476588
+        y: 1275.9285714285713
+      positionAbsolute:
+        x: 747.8660479476588
+        y: 1275.9285714285713
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    viewport:
+      x: 90.87399962490099
+      y: -583.8575498319531
+      zoom: 0.7000000000000005
