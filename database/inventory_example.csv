@@ -1,0 +1,101 @@
+id	name	brand	category	price	stock	features
+1	Lenovo Speakers 2.0 4507	Lenovo	Speakers	169.59	8	Wireless:Yes; Brand:Lenovo; Warranty:36m
+2	AMD Cable HDMI 2.1 9675	AMD	Cable	28.21	1	Brand:AMD; Warranty:12m
+3	LG Smartphone 5G 9864	LG	Smartphone	204.4	12	RAM:64GB; Storage:256GB; Brand:LG; Warranty:24m
+4	Sony Webcam 1080p 2616	Sony	Webcam	215.48	21	Wireless:No; Brand:Sony; Warranty:12m
+5	Huawei Smartphone Plus 1675	Huawei	Smartphone	340.13	6	RAM:32GB; Storage:512GB; Brand:Huawei; Warranty:36m
+6	MSI Smartwatch Sport 7528	MSI	Smartwatch	515.07	24	Brand:MSI; Warranty:12m
+7	Logitech Case RGB 5926	Logitech	Case	190.11	45	Brand:Logitech; Warranty:12m
+8	Canon Desktop Mini 4742	Canon	Desktop	3457.14	14	RAM:8GB; Storage:1024GB; CPU:i9-14900K; Brand:Canon; Warranty:24m
+9	Gigabyte Speakers Bluetooth 2665	Gigabyte	Speakers	241.0	13	Wireless:No; Brand:Gigabyte; Warranty:36m
+10	Netgear Docking Station USB-C 9981	Netgear	Docking Station	275.89	34	Brand:Netgear; Warranty:36m
+11	Acer Tablet Plus 6217	Acer	Tablet	492.53	40	RAM:16GB; Storage:512GB; Brand:Acer; Warranty:12m
+12	Gigabyte Tablet Pro 5169	Gigabyte	Tablet	673.61	4	RAM:16GB; Storage:2048GB; Brand:Gigabyte; Warranty:36m
+13	Samsung Router Gigabit 8180	Samsung	Router	261.55	41	Standard:Wi‑Fi 6E; Ports:4; Brand:Samsung; Warranty:24m
+14	LG Mouse Optical 8831	LG	Mouse	58.35	37	Wireless:No; Brand:LG; Warranty:36m
+15	Corsair HDD 7200rpm 2267	Corsair	HDD	195.5	5	Capacity:256GB; Interface:NVMe; Brand:Corsair; Warranty:12m
+16	Acer Speakers Soundbar 9772	Acer	Speakers	66.21	24	Wireless:No; Brand:Acer; Warranty:36m
+17	AMD Smartwatch Sport 1877	AMD	Smartwatch	635.82	34	Brand:AMD; Warranty:24m
+18	Netgear Chair Gaming 1828	Netgear	Chair	232.62	10	Brand:Netgear; Warranty:24m
+19	Xiaomi Laptop ThinkPad 8202	Xiaomi	Laptop	2252.51	32	RAM:8GB; Storage:512GB; CPU:Ryzen 9 7950X; GPU:RX 7900 XTX; Screen:17in; Brand:Xiaomi; Warranty:12m
+20	Corsair Mouse Ergonomic 8838	Corsair	Mouse	172.33	33	Wireless:Yes; Brand:Corsair; Warranty:36m
+21	Western Digital Router AX6000 1833	Western Digital	Router	560.3	19	Standard:Wi‑Fi 6; Ports:3; Brand:Western Digital; Warranty:12m
+22	HP Webcam 1080p 7963	HP	Webcam	248.49	48	Wireless:Yes; Brand:HP; Warranty:12m
+23	Western Digital Docking Station Triple-Display 2706	Western Digital	Docking Station	150.12	38	Brand:Western Digital; Warranty:24m
+24	AMD Smartphone Ultra 3296	AMD	Smartphone	1611.55	25	RAM:32GB; Storage:1024GB; Brand:AMD; Warranty:36m
+25	Lenovo CPU i7-13700 3682	Lenovo	CPU	189.15	1	Year:2025; Brand:Lenovo; Warranty:36m
+26	Intel Tablet Mini 118	Intel	Tablet	217.97	40	RAM:8GB; Storage:256GB; Brand:Intel; Warranty:12m
+27	Razer Desktop Tower 8424	Razer	Desktop	1290.21	42	RAM:64GB; Storage:256GB; CPU:Ryzen 7 7800X3D; Brand:Razer; Warranty:12m
+28	Intel Cable Ethernet Cat6 7745	Intel	Cable	18.36	30	Brand:Intel; Warranty:24m
+29	Lenovo Smartphone Pro 7063	Lenovo	Smartphone	876.31	26	RAM:64GB; Storage:128GB; Brand:Lenovo; Warranty:36m
+30	Netgear Speakers 2.0 994	Netgear	Speakers	259.49	21	Wireless:Yes; Brand:Netgear; Warranty:12m
+31	Samsung Smartphone 5G 7351	Samsung	Smartphone	437.37	11	RAM:32GB; Storage:1024GB; Brand:Samsung; Warranty:12m
+32	Seagate Monitor Gaming 9017	Seagate	Monitor	255.11	41	Resolution:3840x2160; Refresh:60Hz; Brand:Seagate; Warranty:12m
+33	LG Chair Mesh 6659	LG	Chair	332.53	13	Brand:LG; Warranty:24m
+34	Acer Desktop Workstation 36	Acer	Desktop	3457.4	16	RAM:64GB; Storage:512GB; CPU:Ryzen 5 7600; Brand:Acer; Warranty:36m
+35	MSI Cable Ethernet Cat6 7974	MSI	Cable	13.51	18	Brand:MSI; Warranty:12m
+36	Intel Desktop All-in-One 8884	Intel	Desktop	776.78	20	RAM:8GB; Storage:128GB; CPU:Ryzen 7 7800X3D; Brand:Intel; Warranty:24m
+37	NVIDIA Power Supply 750W 932	NVIDIA	Power Supply	338.63	5	Brand:NVIDIA; Warranty:12m
+38	TP-Link Monitor UltraWide 3854	TP-Link	Monitor	677.21	36	Resolution:1920x1080; Refresh:165Hz; Brand:TP-Link; Warranty:36m
+39	TP-Link Desktop Tower 6869	TP-Link	Desktop	2506.38	36	RAM:32GB; Storage:512GB; CPU:i7-13700; Brand:TP-Link; Warranty:36m
+40	Razer Charger 100W 4352	Razer	Charger	56.56	42	Brand:Razer; Warranty:36m
+41	Seagate Printer InkJet 1189	Seagate	Printer	100.34	39	Brand:Seagate; Warranty:36m
+42	HP Keyboard RGB 3493	HP	Keyboard	138.82	8	Wireless:No; Brand:HP; Warranty:12m
+43	Corsair Tablet Air 2585	Corsair	Tablet	724.69	34	RAM:32GB; Storage:2048GB; Brand:Corsair; Warranty:36m
+44	Apple Power Supply Gold 9087	Apple	Power Supply	146.82	42	Brand:Apple; Warranty:12m
+45	Sony Mouse Wireless 1754	Sony	Mouse	137.5	9	Wireless:No; Brand:Sony; Warranty:24m
+46	Samsung Microphone Podcast 3336	Samsung	Microphone	284.37	16	Wireless:No; Brand:Samsung; Warranty:24m
+47	HP Desktop All-in-One 6940	HP	Desktop	3005.11	2	RAM:8GB; Storage:512GB; CPU:i7-13700; Brand:HP; Warranty:36m
+48	Acer Smartwatch Fit 9039	Acer	Smartwatch	655.7	35	Brand:Acer; Warranty:12m
+49	HP Keyboard Low-Profile 2443	HP	Keyboard	147.76	23	Wireless:Yes; Brand:HP; Warranty:24m
+50	Dell Mouse Gaming 5975	Dell	Mouse	163.33	50	Wireless:Yes; Brand:Dell; Warranty:24m
+51	Canon Smartphone Max 1685	Canon	Smartphone	875.04	35	RAM:64GB; Storage:2048GB; Brand:Canon; Warranty:36m
+52	LG Mouse Ergonomic 2901	LG	Mouse	160.43	1	Wireless:Yes; Brand:LG; Warranty:36m
+53	MSI Router Tri-Band 4066	MSI	Router	189.41	50	Standard:Wi‑Fi 7; Ports:3; Brand:MSI; Warranty:24m
+54	Western Digital Desktop Mini 3270	Western Digital	Desktop	2968.1	29	RAM:32GB; Storage:512GB; CPU:i7-13700; Brand:Western Digital; Warranty:12m
+55	Canon Laptop ZenBook 6529	Canon	Laptop	1255.0	4	RAM:32GB; Storage:512GB; CPU:Ryzen 9 7950X; GPU:RX 7900 XTX; Screen:16in; Brand:Canon; Warranty:36m
+56	AMD VR Headset 4K 453	AMD	VR Headset	394.18	16	Brand:AMD; Warranty:12m
+57	Sony Webcam 1080p 1777	Sony	Webcam	187.04	22	Wireless:No; Brand:Sony; Warranty:24m
+58	NVIDIA Microphone USB 6312	NVIDIA	Microphone	362.82	12	Wireless:No; Brand:NVIDIA; Warranty:12m
+59	Kingston Charger 65W 8519	Kingston	Charger	112.19	34	Brand:Kingston; Warranty:36m
+60	Xiaomi Cable DisplayPort 1.4 5968	Xiaomi	Cable	28.72	42	Brand:Xiaomi; Warranty:24m
+61	Razer Microphone USB 4921	Razer	Microphone	217.64	42	Wireless:No; Brand:Razer; Warranty:24m
+62	Epson HDD NAS 9084	Epson	HDD	75.1	26	Capacity:2048GB; Interface:NVMe; Brand:Epson; Warranty:36m
+63	Logitech Webcam HDR 8978	Logitech	Webcam	253.44	19	Wireless:No; Brand:Logitech; Warranty:12m
+64	MSI GPU RX 7900 XTX 9940	MSI	GPU	1723.09	29	Year:2024; Brand:MSI; Warranty:24m
+65	Samsung Docking Station Triple-Display 7753	Samsung	Docking Station	329.87	50	Brand:Samsung; Warranty:36m
+66	Canon Headphones Wireless 4650	Canon	Headphones	267.42	40	Wireless:No; Brand:Canon; Warranty:12m
+67	Huawei VR Headset PCVR 5086	Huawei	VR Headset	530.8	12	Brand:Huawei; Warranty:12m
+68	Dell Laptop ZenBook 7785	Dell	Laptop	1905.93	49	RAM:8GB; Storage:1024GB; CPU:Ryzen 5 7600; GPU:RX 7900 XTX; Screen:14in; Brand:Dell; Warranty:36m
+69	HyperX Charger USB-C 6548	HyperX	Charger	40.62	41	Brand:HyperX; Warranty:36m
+70	Huawei Laptop Air 6966	Huawei	Laptop	1003.33	44	RAM:64GB; Storage:128GB; CPU:Ryzen 7 7800X3D; GPU:RTX 4080; Screen:13.3in; Brand:Huawei; Warranty:24m
+71	MSI Mouse Laser 8703	MSI	Mouse	178.0	38	Wireless:No; Brand:MSI; Warranty:24m
+72	Gigabyte Microphone Condenser 8977	Gigabyte	Microphone	194.99	10	Wireless:No; Brand:Gigabyte; Warranty:24m
+73	Huawei Smartwatch Classic 4544	Huawei	Smartwatch	705.63	33	Brand:Huawei; Warranty:24m
+74	LG Speakers Bluetooth 7207	LG	Speakers	74.17	18	Wireless:Yes; Brand:LG; Warranty:24m
+75	Razer Router Mesh 1321	Razer	Router	117.49	14	Standard:Wi‑Fi 6E; Ports:4; Brand:Razer; Warranty:36m
+76	HP Smartphone Lite 6679	HP	Smartphone	828.31	29	RAM:64GB; Storage:128GB; Brand:HP; Warranty:12m
+77	Kingston VR Headset OLED 9570	Kingston	VR Headset	1432.58	1	Brand:Kingston; Warranty:36m
+78	Western Digital HDD 7200rpm 5764	Western Digital	HDD	129.06	24	Capacity:2048GB; Interface:NVMe; Brand:Western Digital; Warranty:24m
+79	Sony Tablet Plus 7957	Sony	Tablet	160.05	21	RAM:64GB; Storage:256GB; Brand:Sony; Warranty:24m
+80	TP-Link Mouse Optical 442	TP-Link	Mouse	164.64	37	Wireless:Yes; Brand:TP-Link; Warranty:12m
+81	Kingston Speakers 2.1 7565	Kingston	Speakers	133.59	16	Wireless:No; Brand:Kingston; Warranty:24m
+82	Seagate Smartphone Plus 5530	Seagate	Smartphone	1710.52	24	RAM:32GB; Storage:1024GB; Brand:Seagate; Warranty:24m
+83	HP VR Headset OLED 318	HP	VR Headset	1186.28	3	Brand:HP; Warranty:24m
+84	Netgear Tablet Pro 660	Netgear	Tablet	1160.84	15	RAM:16GB; Storage:128GB; Brand:Netgear; Warranty:36m
+85	LG Mouse Ergonomic 7759	LG	Mouse	125.46	36	Wireless:Yes; Brand:LG; Warranty:24m
+86	Sony Charger GaN 2750	Sony	Charger	78.62	47	Brand:Sony; Warranty:36m
+87	Huawei Keyboard Wireless 5097	Huawei	Keyboard	49.32	1	Wireless:No; Brand:Huawei; Warranty:36m
+88	HyperX Docking Station Thunderbolt 3250	HyperX	Docking Station	85.84	44	Brand:HyperX; Warranty:36m
+89	Lenovo Tablet Air 9838	Lenovo	Tablet	1231.63	50	RAM:8GB; Storage:512GB; Brand:Lenovo; Warranty:36m
+90	Canon GPU RTX 4090 1130	Canon	GPU	1388.41	21	Year:2023; Brand:Canon; Warranty:24m
+91	Western Digital VR Headset Standalone 7103	Western Digital	VR Headset	1450.98	40	Brand:Western Digital; Warranty:24m
+92	Asus Charger USB-C 2886	Asus	Charger	92.05	41	Brand:Asus; Warranty:24m
+93	MSI Microphone Condenser 7617	MSI	Microphone	191.16	46	Wireless:No; Brand:MSI; Warranty:24m
+94	Gigabyte Tablet Pro 4570	Gigabyte	Tablet	1336.65	15	RAM:64GB; Storage:2048GB; Brand:Gigabyte; Warranty:36m
+95	HyperX Docking Station Thunderbolt 471	HyperX	Docking Station	228.06	20	Brand:HyperX; Warranty:12m
+96	Samsung Motherboard Z790 4233	Samsung	Motherboard	304.2	38	Year:2025; Brand:Samsung; Warranty:24m
+97	Apple Case RGB 3131	Apple	Case	62.26	46	Brand:Apple; Warranty:24m
+98	AMD Motherboard X670E 7801	AMD	Motherboard	487.54	31	Year:2024; Brand:AMD; Warranty:12m
+99	Logitech Monitor 4K 6626	Logitech	Monitor	1074.67	19	Resolution:3840x2160; Refresh:165Hz; Brand:Logitech; Warranty:24m
+100	AMD Motherboard X570 5633	AMD	Motherboard	355.3	47	Year:2025; Brand:AMD; Warranty:24m
