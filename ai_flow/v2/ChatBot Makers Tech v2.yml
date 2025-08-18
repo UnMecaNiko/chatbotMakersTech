@@ -1,0 +1,1964 @@
+app:
+  description: This ChatBot allows you to consult about inventory and get information
+    about products
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: ChatBot Makers Tech
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/gemini:0.4.1@a60729af3cee6164225765ef67868f641a6c2b804904ce1a0d4633936175428f
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: hjlarry/database:0.0.6@534bc26cf5bc4ff6b5557457452287ccc71f00eef9378784c4f43ca49954ca2f
+kind: app
+version: 0.3.1
+workflow:
+  conversation_variables:
+  - description: user name
+    id: d48030a7-69d3-4a22-9cc7-2dd990f669c0
+    name: user_name
+    selector:
+    - conversation
+    - user_name
+    value: ''
+    value_type: string
+  - description: ''
+    id: 1eb20910-0de9-49a7-9fb8-c0f61cf4810d
+    name: user_budget
+    selector:
+    - conversation
+    - user_budget
+    value: ''
+    value_type: string
+  - description: ''
+    id: e574a527-4830-46b0-af06-4b3ce3f0ac76
+    name: user_preferred_category
+    selector:
+    - conversation
+    - user_preferred_category
+    value: ''
+    value_type: string
+  - description: ''
+    id: f26c4cbf-4e68-4399-bc93-43e53f66aa6c
+    name: user_preferred_brand
+    selector:
+    - conversation
+    - user_preferred_brand
+    value: ''
+    value_type: string
+  - description: user preferences [budged, category, brand]
+    id: ccd94c8f-2998-4d98-8cea-b37a8387163b
+    name: user_preferences
+    selector:
+    - conversation
+    - user_preferences
+    value: []
+    value_type: array[string]
+  environment_variables:
+  - description: name of the supabase inventory table
+    id: b1e69dd0-2653-40e4-95aa-92720f6d068a
+    name: table_name
+    selector:
+    - env
+    - table_name
+    value: inventory
+    value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: 'Hi! I´m Marco, your inventory assistant from Makers Tech,
+      you can ask me about stock, characteristics, brands and more.
+
+      If you´re registered, put your user id in the top field to get personalized
+      recommendations.'
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: agent
+        targetType: answer
+      id: 1755458460371-source-1755461812937-target
+      selected: false
+      source: '1755458460371'
+      sourceHandle: source
+      target: '1755461812937'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: if-else
+      id: 1711528708197-source-1755478782385-target
+      selected: false
+      source: '1711528708197'
+      sourceHandle: source
+      target: '1755478782385'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: assigner
+      id: 1755480210717-source-1755479823214-target
+      selected: false
+      source: '1755480210717'
+      sourceHandle: source
+      target: '1755479823214'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: template-transform
+      id: 1755479151385-source-1755480210717-target
+      selected: false
+      source: '1755479151385'
+      sourceHandle: source
+      target: '1755480210717'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: answer
+        targetType: agent
+      id: 1755481792821-source-1755458460371-target
+      selected: false
+      source: '1755481792821'
+      sourceHandle: source
+      target: '1755458460371'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: agent
+      id: 1755478782385-false-1755458460371-target
+      selected: false
+      source: '1755478782385'
+      sourceHandle: 'false'
+      target: '1755458460371'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: template-transform
+      id: 1755479151385-source-17554826902080-target
+      selected: false
+      source: '1755479151385'
+      sourceHandle: source
+      target: '17554826902080'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: template-transform
+      id: 1755479151385-source-17554827014550-target
+      selected: false
+      source: '1755479151385'
+      sourceHandle: source
+      target: '17554827014550'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: assigner
+      id: 17554826902080-source-17554826951540-target
+      selected: false
+      source: '17554826902080'
+      sourceHandle: source
+      target: '17554826951540'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: assigner
+      id: 17554827014550-source-17554827208510-target
+      selected: false
+      source: '17554827014550'
+      sourceHandle: source
+      target: '17554827208510'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1755483090779-source-1755485160335-target
+      source: '1755483090779'
+      sourceHandle: source
+      target: '1755485160335'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: template-transform
+      id: 1755485306309-source-1755485599291-target
+      source: '1755485306309'
+      sourceHandle: source
+      target: '1755485599291'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: assigner
+      id: 1755485599291-source-1755485945172-target
+      source: '1755485599291'
+      sourceHandle: source
+      target: '1755485945172'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: assigner
+        targetType: if-else
+      id: 1755485945172-source-1755485347584-target
+      source: '1755485945172'
+      sourceHandle: source
+      target: '1755485347584'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1755485347584-true-1755481792821-target
+      source: '1755485347584'
+      sourceHandle: 'true'
+      target: '1755481792821'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1755485347584-false-1755479151385-target
+      source: '1755485347584'
+      sourceHandle: 'false'
+      target: '1755479151385'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1755478782385-true-1755485306309-target
+      selected: false
+      source: '1755478782385'
+      sourceHandle: 'true'
+      target: '1755485306309'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: assigner
+        targetType: tool
+      id: 17554827208510-source-1755483090779-target
+      source: '17554827208510'
+      sourceHandle: source
+      target: '1755483090779'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: assigner
+        targetType: tool
+      id: 17554826951540-source-1755483090779-target
+      source: '17554826951540'
+      sourceHandle: source
+      target: '1755483090779'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: assigner
+        targetType: tool
+      id: 1755479823214-source-1755483090779-target
+      source: '1755479823214'
+      sourceHandle: source
+      target: '1755483090779'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1755485160335-source-1755487466381-target
+      source: '1755485160335'
+      sourceHandle: source
+      target: '1755487466381'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: Define the initial parameters for launching a workflow
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - label: user id
+          max_length: 48
+          options: []
+          required: false
+          type: text-input
+          variable: user
+      height: 133
+      id: '1711528708197'
+      position:
+        x: 391.7867894241963
+        y: 1250.4152462599732
+      positionAbsolute:
+        x: 391.7867894241963
+        y: 1250.4152462599732
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        agent_parameters:
+          instruction:
+            type: constant
+            value: 'You are Makers Tech Inventory Assistant, a friendly and professional
+              AI that helps users explore and analyze the company’s product inventory.
+              Greet the user warmly at the start of each conversation. After every
+              answer, suggest a possible next step or mention another type of question
+              the user can ask.
+
+              Database
+
+              All data is in the inventory table with these columns:
+
+              id (INT)
+
+              name (TEXT)
+
+              brand (TEXT) – valid values: Apple, Dell, HP, Lenovo, Asus, Acer, Samsung,
+              LG, Sony, Logitech, Razer, Corsair, HyperX, Kingston, Seagate, Western
+              Digital, NVIDIA, AMD, Intel, TP-Link, Netgear, Canon, Epson, Xiaomi,
+              Huawei, MSI, Gigabyte
+
+              category (TEXT) – valid values: Laptop, Desktop, Monitor, Keyboard,
+              Mouse, Headphones, Smartphone, Tablet, Smartwatch, Printer, Router,
+              SSD, HDD, GPU, CPU, Motherboard, Power Supply, Case, Webcam, Microphone,
+              Speakers, Docking Station, Charger, Cable, Chair, Gaming Console, VR
+              Headset
+
+              price (FLOAT, USD)
+
+              stock (INT)
+
+              features (TEXT)
+
+              Tools
+
+              SQL Execute: use for ranges, ordering, or aggregations.
+
+              Get Table Schema: use if you need to confirm column names or data types.
+
+              WolframAlpha: always use for calculations (average, sum, min, max, percentages,
+              ratios, variance). First retrieve raw data with SQL, then send it to
+              WolframAlpha.
+
+              Instructions
+
+              Read the user’s request and identify what is needed.
+
+              Choose the right tool based on the type of query.
+
+              Execute the tool and review results. If SQL query fails, use Get Table
+              Schema tool.
+
+              Answer in clear, concise natural language.
+
+              Always be professional, but also approachable and supportive. Always
+              use WolframAlpha for math operations.
+
+
+              If the user identify himself, you can have its preferences, use it to
+              get better recommendations and searches:
+
+              Brand: {{#conversation.user_preferred_brand#}}
+
+              Category: {{#conversation.user_preferred_category#}}
+
+              Budget: {{#conversation.user_budget#}}
+
+
+              At the end of each answer, suggest what else the user can explore (for
+              example: “Would you like me to show you the most expensive option too?”).
+
+              Response Examples
+
+              User: What is the cheapest tablet?
+
+              Assistant: The cheapest tablet is Samsung Tablet Pro 1045, priced at
+              129.99 USD. You might also want to see which brand has the widest variety
+              of tablets.
+
+              User: What is the average price of mouses?
+
+              Assistant: The average price of mouses is 57.43 USD, based on all products
+              in inventory. If you like, I can also show you the cheapest or most
+              expensive mouse available.'
+          maximum_iterations:
+            type: constant
+            value: 5
+          model:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: gemini-2.5-flash
+              model_type: llm
+              provider: langgenius/gemini/google
+              type: model-selector
+          query:
+            type: constant
+            value: '{{#sys.query#}}'
+          tools:
+            type: constant
+            value:
+            - enabled: true
+              extra:
+                description: WolframAlpha is a powerful computational knowledge engine.
+              parameters:
+                query:
+                  auto: 1
+                  value: null
+              provider_name: langgenius/wolframalpha/wolframalpha
+              provider_show_name: langgenius/wolframalpha/wolframalpha
+              schemas:
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: used for calculating
+                  ja_JP: used for calculating
+                  pt_BR: used for calculating
+                  zh_Hans: 用于计算最终结果
+                label:
+                  en_US: Query string
+                  ja_JP: Query string
+                  pt_BR: Query string
+                  zh_Hans: 计算语句
+                llm_description: a single query for calculating
+                max: null
+                min: null
+                name: query
+                options: []
+                placeholder: null
+                precision: null
+                required: true
+                scope: null
+                template: null
+                type: string
+              settings: {}
+              tool_description: WolframAlpha is a powerful computational knowledge
+                engine.
+              tool_label: WolframAlpha
+              tool_name: wolframalpha
+              type: builtin
+            - enabled: true
+              extra:
+                description: This tool is used to execute SQL in an existing database.
+              parameters:
+                db_uri:
+                  auto: 0
+                  value:
+                    type: mixed
+                    value: ''
+                query:
+                  auto: 1
+                  value: null
+              provider_name: hjlarry/database/database
+              provider_show_name: hjlarry/database/database
+              schemas:
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: The SQL query string.
+                  ja_JP: The SQL query string.
+                  pt_BR: The SQL query string.
+                  zh_Hans: SQL 查询语句。
+                label:
+                  en_US: SQL Query
+                  ja_JP: SQL Query
+                  pt_BR: SQL Query
+                  zh_Hans: SQL 查询语句
+                llm_description: The SQL query string.
+                max: null
+                min: null
+                name: query
+                options: []
+                placeholder: null
+                precision: null
+                required: true
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: Optional, Filling in this field will overwrite the database
+                    connection entered during authorization.
+                  ja_JP: Optional, Filling in this field will overwrite the database
+                    connection entered during authorization.
+                  pt_BR: Optional, Filling in this field will overwrite the database
+                    connection entered during authorization.
+                  zh_Hans: 选填，填写后将覆盖授权时填写的数据库连接。
+                label:
+                  en_US: DB URI
+                  ja_JP: DB URI
+                  pt_BR: DB URI
+                  zh_Hans: DB URI
+                llm_description: ''
+                max: null
+                min: null
+                name: db_uri
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: json
+                form: form
+                human_description:
+                  en_US: Choose the output format.
+                  ja_JP: Choose the output format.
+                  pt_BR: Choose the output format.
+                  zh_Hans: 选择输出格式。
+                label:
+                  en_US: Output format
+                  ja_JP: Output format
+                  pt_BR: Output format
+                  zh_Hans: 输出格式
+                llm_description: ''
+                max: null
+                min: null
+                name: format
+                options:
+                - icon: ''
+                  label:
+                    en_US: JSON
+                    ja_JP: JSON
+                    pt_BR: JSON
+                    zh_Hans: JSON
+                  value: json
+                - icon: ''
+                  label:
+                    en_US: CSV
+                    ja_JP: CSV
+                    pt_BR: CSV
+                    zh_Hans: CSV
+                  value: csv
+                - icon: ''
+                  label:
+                    en_US: YAML
+                    ja_JP: YAML
+                    pt_BR: YAML
+                    zh_Hans: YAML
+                  value: yaml
+                - icon: ''
+                  label:
+                    en_US: Markdown
+                    ja_JP: Markdown
+                    pt_BR: Markdown
+                    zh_Hans: Markdown
+                  value: md
+                - icon: ''
+                  label:
+                    en_US: Excel
+                    ja_JP: Excel
+                    pt_BR: Excel
+                    zh_Hans: Excel
+                  value: xlsx
+                - icon: ''
+                  label:
+                    en_US: HTML
+                    ja_JP: HTML
+                    pt_BR: HTML
+                    zh_Hans: HTML
+                  value: html
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: select
+              - auto_generate: null
+                default: null
+                form: form
+                human_description:
+                  en_US: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                  ja_JP: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                  pt_BR: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                  zh_Hans: '选填项。例如 {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    更多连接选项可参考 https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                label:
+                  en_US: DB Config Options
+                  ja_JP: DB Config Options
+                  pt_BR: DB Config Options
+                  zh_Hans: 数据库连接配置选项
+                llm_description: ''
+                max: null
+                min: null
+                name: config_options
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              settings:
+                config_options:
+                  value:
+                    type: mixed
+                    value: null
+                format:
+                  value:
+                    type: constant
+                    value: json
+              tool_description: This tool is used to execute SQL in an existing database.
+              tool_label: SQL Execute
+              tool_name: sql_execute
+              type: builtin
+            - enabled: true
+              extra:
+                description: get the table schema from the database.
+              parameters:
+                db_uri:
+                  auto: 0
+                  value:
+                    type: mixed
+                    value: null
+                tables:
+                  auto: 1
+                  value: null
+              provider_name: hjlarry/database/database
+              provider_show_name: hjlarry/database/database
+              schemas:
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: Specify which tables schema you want to get. If not specified,
+                    all tables will be used. Multi tables use comma to separate.
+                  ja_JP: Specify which tables schema you want to get. If not specified,
+                    all tables will be used. Multi tables use comma to separate.
+                  pt_BR: Specify which tables schema you want to get. If not specified,
+                    all tables will be used. Multi tables use comma to separate.
+                  zh_Hans: 指定想要哪些表的结构，如不指定，则使用所有表。多张表用半角逗号隔开。
+                label:
+                  en_US: Tables
+                  ja_JP: Tables
+                  pt_BR: Tables
+                  zh_Hans: 表
+                llm_description: Specify which tables schema you want to get. If not
+                  specified, all tables will be used. Multi tables use comma to separate.
+                max: null
+                min: null
+                name: tables
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: Optional, Filling in this field will overwrite the database
+                    connection entered during authorization.
+                  ja_JP: Optional, Filling in this field will overwrite the database
+                    connection entered during authorization.
+                  pt_BR: Optional, Filling in this field will overwrite the database
+                    connection entered during authorization.
+                  zh_Hans: 选填，填写后将覆盖授权时填写的数据库连接。
+                label:
+                  en_US: DB URI
+                  ja_JP: DB URI
+                  pt_BR: DB URI
+                  zh_Hans: DB URI
+                llm_description: ''
+                max: null
+                min: null
+                name: db_uri
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: secret-input
+              - auto_generate: null
+                default: null
+                form: form
+                human_description:
+                  en_US: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                  ja_JP: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                  pt_BR: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                  zh_Hans: '选填项。例如 {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+                    更多连接选项可参考 https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+                    '
+                label:
+                  en_US: DB Config Options
+                  ja_JP: DB Config Options
+                  pt_BR: DB Config Options
+                  zh_Hans: 数据库连接配置选项
+                llm_description: ''
+                max: null
+                min: null
+                name: config_options
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: null
+                form: form
+                human_description:
+                  en_US: Schema name. If `schema` is left empty, the database's default
+                    schema(like the `public` of postgresql) is used, else the named
+                    schema is searched
+                  ja_JP: Schema name. If `schema` is left empty, the database's default
+                    schema(like the `public` of postgresql) is used, else the named
+                    schema is searched
+                  pt_BR: Schema name. If `schema` is left empty, the database's default
+                    schema(like the `public` of postgresql) is used, else the named
+                    schema is searched
+                  zh_Hans: 数据库schema名称。如果 `schema` 留空，则使用数据库的默认schema(例如postgresql中的public)，否则使用指定的schema。
+                label:
+                  en_US: Schema
+                  ja_JP: Schema
+                  pt_BR: Schema
+                  zh_Hans: Schema
+                llm_description: ''
+                max: null
+                min: null
+                name: schema
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              settings:
+                config_options:
+                  value:
+                    type: mixed
+                    value: null
+                schema:
+                  value:
+                    type: mixed
+                    value: null
+              tool_description: get the table schema from the database.
+              tool_label: Get Table Schema
+              tool_name: table_schema
+              type: builtin
+        agent_strategy_label: FunctionCalling
+        agent_strategy_name: function_calling
+        agent_strategy_provider_name: langgenius/agent/agent
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          window:
+            enabled: false
+            size: 50
+        meta:
+          minimum_dify_version: 1.7.0
+          version: 0.0.2
+        output_schema: null
+        plugin_unique_identifier: langgenius/agent:0.0.23@baba5fd2631a535dcd85f070f8be1bdcfb02c46e1a0a830ad00d7bc846063de4
+        selected: false
+        title: Assistant
+        tool_node_version: '2'
+        type: agent
+      height: 197
+      id: '1755458460371'
+      position:
+        x: 1982.7738686256453
+        y: 1250.4152462599732
+      positionAbsolute:
+        x: 1982.7738686256453
+        y: 1250.4152462599732
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        answer: '{{#1755458460371.text#}}/'
+        desc: ''
+        selected: false
+        title: Answer
+        type: answer
+        variables: []
+      height: 103
+      id: '1755461812937'
+      position:
+        x: 2246.6400415688117
+        y: 1250.4152462599732
+      positionAbsolute:
+        x: 2246.6400415688117
+        y: 1250.4152462599732
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: 7d0ed754-6706-4192-8b09-282a798a074c
+            value: ''
+            varType: string
+            variable_selector:
+            - '1711528708197'
+            - user
+          - comparison_operator: empty
+            id: c9d95874-c12a-4e71-bf5d-85d0bf48952c
+            value: ''
+            varType: string
+            variable_selector:
+            - conversation
+            - user_name
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: IF/ELSE
+        type: if-else
+      height: 151
+      id: '1755478782385'
+      position:
+        x: 647.1241614632133
+        y: 1250.4152462599732
+      positionAbsolute:
+        x: 647.1241614632133
+        y: 1250.4152462599732
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The SQL query string.
+            ja_JP: The SQL query string.
+            pt_BR: The SQL query string.
+            zh_Hans: SQL 查询语句。
+          label:
+            en_US: SQL Query
+            ja_JP: SQL Query
+            pt_BR: SQL Query
+            zh_Hans: SQL 查询语句
+          llm_description: The SQL query string.
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Optional, Filling in this field will overwrite the database connection
+              entered during authorization.
+            ja_JP: Optional, Filling in this field will overwrite the database connection
+              entered during authorization.
+            pt_BR: Optional, Filling in this field will overwrite the database connection
+              entered during authorization.
+            zh_Hans: 选填，填写后将覆盖授权时填写的数据库连接。
+          label:
+            en_US: DB URI
+            ja_JP: DB URI
+            pt_BR: DB URI
+            zh_Hans: DB URI
+          llm_description: ''
+          max: null
+          min: null
+          name: db_uri
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: json
+          form: form
+          human_description:
+            en_US: Choose the output format.
+            ja_JP: Choose the output format.
+            pt_BR: Choose the output format.
+            zh_Hans: 选择输出格式。
+          label:
+            en_US: Output format
+            ja_JP: Output format
+            pt_BR: Output format
+            zh_Hans: 输出格式
+          llm_description: ''
+          max: null
+          min: null
+          name: format
+          options:
+          - icon: ''
+            label:
+              en_US: JSON
+              ja_JP: JSON
+              pt_BR: JSON
+              zh_Hans: JSON
+            value: json
+          - icon: ''
+            label:
+              en_US: CSV
+              ja_JP: CSV
+              pt_BR: CSV
+              zh_Hans: CSV
+            value: csv
+          - icon: ''
+            label:
+              en_US: YAML
+              ja_JP: YAML
+              pt_BR: YAML
+              zh_Hans: YAML
+            value: yaml
+          - icon: ''
+            label:
+              en_US: Markdown
+              ja_JP: Markdown
+              pt_BR: Markdown
+              zh_Hans: Markdown
+            value: md
+          - icon: ''
+            label:
+              en_US: Excel
+              ja_JP: Excel
+              pt_BR: Excel
+              zh_Hans: Excel
+            value: xlsx
+          - icon: ''
+            label:
+              en_US: HTML
+              ja_JP: HTML
+              pt_BR: HTML
+              zh_Hans: HTML
+            value: html
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+            ja_JP: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+            pt_BR: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+            zh_Hans: '选填项。例如 {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              更多连接选项可参考 https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+          label:
+            en_US: DB Config Options
+            ja_JP: DB Config Options
+            pt_BR: DB Config Options
+            zh_Hans: 数据库连接配置选项
+          llm_description: ''
+          max: null
+          min: null
+          name: config_options
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          config_options: ''
+          db_uri: ''
+          format: ''
+          query: ''
+        provider_id: hjlarry/database/database
+        provider_name: hjlarry/database/database
+        provider_type: builtin
+        selected: false
+        title: preferences - SQL Execute
+        tool_configurations:
+          config_options:
+            type: mixed
+            value: null
+          format:
+            type: constant
+            value: json
+        tool_description: This tool is used to execute SQL in an existing database.
+        tool_label: SQL Execute
+        tool_name: sql_execute
+        tool_node_version: '2'
+        tool_parameters:
+          db_uri:
+            type: mixed
+            value: ''
+          query:
+            type: mixed
+            value: "SELECT\n  json_build_array(budget, preferred_category, preferred_brand)\
+              \ AS preferences\nFROM users_preferences\nWHERE id = {{#1711528708197.user#}}\n\
+              LIMIT 1;"
+        type: tool
+      height: 115
+      id: '1755479151385'
+      position:
+        x: 1168.9026063504557
+        y: 992.7357987250075
+      positionAbsolute:
+        x: 1168.9026063504557
+        y: 992.7357987250075
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1755480210717'
+          - output
+          variable_selector:
+          - conversation
+          - user_budget
+          write_mode: over-write
+        selected: false
+        title: Variable Assigner
+        type: assigner
+        version: '2'
+      height: 85
+      id: '1755479823214'
+      position:
+        x: 1707.1978016748506
+        y: 952.6028335547815
+      positionAbsolute:
+        x: 1707.1978016748506
+        y: 952.6028335547815
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        selected: false
+        template: '{% set res = arg1[0].result | default() %}{% if res and res[0].preferences
+          is defined %}{{res[0].preferences[0] }}{% else %}{% endif %}'
+        title: Template
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1755479151385'
+          - json
+          value_type: array[object]
+          variable: arg1
+      height: 53
+      id: '1755480210717'
+      position:
+        x: 1435.5196052646388
+        y: 992.7357987250075
+      positionAbsolute:
+        x: 1435.5196052646388
+        y: 992.7357987250075
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        answer: El id de usuario que escribiste no está registrado, intenta con otro
+          valor
+        desc: ''
+        selected: false
+        title: Answer 2
+        type: answer
+        variables: []
+      height: 117
+      id: '1755481792821'
+      position:
+        x: 1963.2618545958744
+        y: 813.5388553454704
+      positionAbsolute:
+        x: 1963.2618545958744
+        y: 813.5388553454704
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        selected: false
+        template: '{% set res = arg1[0].result | default([]) %}{% if res and res[0].preferences
+          is defined %}{{res[0].preferences[1]}}{% else %}{% endif %}'
+        title: Template (1)
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1755479151385'
+          - json
+          value_type: array[object]
+          variable: arg1
+      height: 53
+      id: '17554826902080'
+      position:
+        x: 1435.5196052646388
+        y: 1073.4033650218057
+      positionAbsolute:
+        x: 1435.5196052646388
+        y: 1073.4033650218057
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '17554826902080'
+          - output
+          variable_selector:
+          - conversation
+          - user_preferred_category
+          write_mode: over-write
+        selected: false
+        title: Variable Assigner (1)
+        type: assigner
+        version: '2'
+      height: 85
+      id: '17554826951540'
+      position:
+        x: 1707.1978016748506
+        y: 1058.7002768731936
+      positionAbsolute:
+        x: 1707.1978016748506
+        y: 1058.7002768731936
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        selected: false
+        template: '{% set res = arg1[0].result | default([]) %}{% if res and res[0].preferences
+          is defined %}{{res[0].preferences[2]}}{% else %}{% endif %}'
+        title: Template (2)
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1755479151385'
+          - json
+          value_type: array[object]
+          variable: arg1
+      height: 53
+      id: '17554827014550'
+      position:
+        x: 1435.5196052646388
+        y: 1151.4428328875165
+      positionAbsolute:
+        x: 1435.5196052646388
+        y: 1151.4428328875165
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '17554827014550'
+          - output
+          variable_selector:
+          - conversation
+          - user_preferred_brand
+          write_mode: over-write
+        selected: false
+        title: Variable Assigner (2)
+        type: assigner
+        version: '2'
+      height: 85
+      id: '17554827208510'
+      position:
+        x: 1707.1978016748506
+        y: 1156.929687943054
+      positionAbsolute:
+        x: 1707.1978016748506
+        y: 1156.929687943054
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The SQL query string.
+            ja_JP: The SQL query string.
+            pt_BR: The SQL query string.
+            zh_Hans: SQL 查询语句。
+          label:
+            en_US: SQL Query
+            ja_JP: SQL Query
+            pt_BR: SQL Query
+            zh_Hans: SQL 查询语句
+          llm_description: The SQL query string.
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Optional, Filling in this field will overwrite the database connection
+              entered during authorization.
+            ja_JP: Optional, Filling in this field will overwrite the database connection
+              entered during authorization.
+            pt_BR: Optional, Filling in this field will overwrite the database connection
+              entered during authorization.
+            zh_Hans: 选填，填写后将覆盖授权时填写的数据库连接。
+          label:
+            en_US: DB URI
+            ja_JP: DB URI
+            pt_BR: DB URI
+            zh_Hans: DB URI
+          llm_description: ''
+          max: null
+          min: null
+          name: db_uri
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: json
+          form: form
+          human_description:
+            en_US: Choose the output format.
+            ja_JP: Choose the output format.
+            pt_BR: Choose the output format.
+            zh_Hans: 选择输出格式。
+          label:
+            en_US: Output format
+            ja_JP: Output format
+            pt_BR: Output format
+            zh_Hans: 输出格式
+          llm_description: ''
+          max: null
+          min: null
+          name: format
+          options:
+          - icon: ''
+            label:
+              en_US: JSON
+              ja_JP: JSON
+              pt_BR: JSON
+              zh_Hans: JSON
+            value: json
+          - icon: ''
+            label:
+              en_US: CSV
+              ja_JP: CSV
+              pt_BR: CSV
+              zh_Hans: CSV
+            value: csv
+          - icon: ''
+            label:
+              en_US: YAML
+              ja_JP: YAML
+              pt_BR: YAML
+              zh_Hans: YAML
+            value: yaml
+          - icon: ''
+            label:
+              en_US: Markdown
+              ja_JP: Markdown
+              pt_BR: Markdown
+              zh_Hans: Markdown
+            value: md
+          - icon: ''
+            label:
+              en_US: Excel
+              ja_JP: Excel
+              pt_BR: Excel
+              zh_Hans: Excel
+            value: xlsx
+          - icon: ''
+            label:
+              en_US: HTML
+              ja_JP: HTML
+              pt_BR: HTML
+              zh_Hans: HTML
+            value: html
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+            ja_JP: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+            pt_BR: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+            zh_Hans: '选填项。例如 {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              更多连接选项可参考 https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+          label:
+            en_US: DB Config Options
+            ja_JP: DB Config Options
+            pt_BR: DB Config Options
+            zh_Hans: 数据库连接配置选项
+          llm_description: ''
+          max: null
+          min: null
+          name: config_options
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          config_options: ''
+          db_uri: ''
+          format: ''
+          query: ''
+        provider_id: hjlarry/database/database
+        provider_name: hjlarry/database/database
+        provider_type: builtin
+        selected: false
+        title: Preferred items - SQL Ex
+        tool_configurations:
+          config_options:
+            type: mixed
+            value: null
+          format:
+            type: constant
+            value: md
+        tool_description: This tool is used to execute SQL in an existing database.
+        tool_label: SQL Execute
+        tool_name: sql_execute
+        tool_node_version: '2'
+        tool_parameters:
+          db_uri:
+            type: mixed
+            value: ''
+          query:
+            type: mixed
+            value: "SELECT json_build_object(\n  'top_within_budget',\n    COALESCE(\n\
+              \      (SELECT json_agg(t)\n       FROM (\n         SELECT id, name,\
+              \ brand, category, price, stock\n         FROM inventory\n         WHERE\
+              \ stock > 0\n           AND price <= {{#conversation.user_budget#}}\n\
+              \         ORDER BY price DESC\n         LIMIT 5\n       ) AS t),\n \
+              \     '[]'::json\n    ),\n  'by_preferred_brand',\n    COALESCE(\n \
+              \     (SELECT json_agg(t)\n       FROM (\n         SELECT id, name,\
+              \ brand, category, price, stock\n         FROM inventory\n         WHERE\
+              \ stock > 0\n           AND brand = '{{#conversation.user_preferred_brand#}}'\n\
+              \         ORDER BY price DESC\n         LIMIT 5\n       ) AS t),\n \
+              \     '[]'::json\n    ),\n  'by_preferred_category',\n    COALESCE(\n\
+              \      (SELECT json_agg(t)\n       FROM (\n         SELECT id, name,\
+              \ brand, category, price, stock\n         FROM inventory\n         WHERE\
+              \ stock > 0\n           AND category = '{{#conversation.user_preferred_category#}}'\n\
+              \         ORDER BY price DESC\n         LIMIT 5\n       ) AS t),\n \
+              \     '[]'::json\n    )\n) AS recommendations;"
+        type: tool
+      height: 115
+      id: '1755483090779'
+      position:
+        x: 1963.2618545958744
+        y: 1058.7002768731936
+      positionAbsolute:
+        x: 1963.2618545958744
+        y: 1058.7002768731936
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-2.5-flash-lite
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: c7c6cb47-df73-4941-a7b3-3b9a1c6a9581
+          role: system
+          text: 'You are the Makers Tech Inventory Assistant, a conversational AI
+            that helps users explore and analyze the company’s product inventory.
+
+            When a user interacts with you:
+
+            Greet them by name: {{#conversation.user_name#}}
+
+            Acknowledge their preferences clearly:
+
+            Preferred brand: {{#conversation.user_preferred_brand#}}
+
+            Preferred category: {{#conversation.user_preferred_category#}}
+
+            Budget: {{#conversation.user_budget#}}
+
+            Provide recommendations based on the list of items already retrieved for
+            them:
+
+            {{#1755483090779.text#}}
+
+
+            Be proactive: After showing recommendations, suggest useful follow-up
+            queries the user could make. For example:
+
+            “Would you like to know how many items we have from a specific brand?”
+
+            “Do you want to see the most popular products in your category?”
+
+            “Shall I show you which items are running low in stock?”
+
+            Your tone should be professional, concise, and friendly. Always aim to
+            make the experience engaging while keeping the information accurate and
+            easy to understand.'
+        - id: de5dcac6-685f-40e9-9e42-b71263b42c73
+          role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 89
+      id: '1755485160335'
+      position:
+        x: 2229.21402363335
+        y: 942.5176432534938
+      positionAbsolute:
+        x: 2229.21402363335
+        y: 942.5176432534938
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The SQL query string.
+            ja_JP: The SQL query string.
+            pt_BR: The SQL query string.
+            zh_Hans: SQL 查询语句。
+          label:
+            en_US: SQL Query
+            ja_JP: SQL Query
+            pt_BR: SQL Query
+            zh_Hans: SQL 查询语句
+          llm_description: The SQL query string.
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Optional, Filling in this field will overwrite the database connection
+              entered during authorization.
+            ja_JP: Optional, Filling in this field will overwrite the database connection
+              entered during authorization.
+            pt_BR: Optional, Filling in this field will overwrite the database connection
+              entered during authorization.
+            zh_Hans: 选填，填写后将覆盖授权时填写的数据库连接。
+          label:
+            en_US: DB URI
+            ja_JP: DB URI
+            pt_BR: DB URI
+            zh_Hans: DB URI
+          llm_description: ''
+          max: null
+          min: null
+          name: db_uri
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: json
+          form: form
+          human_description:
+            en_US: Choose the output format.
+            ja_JP: Choose the output format.
+            pt_BR: Choose the output format.
+            zh_Hans: 选择输出格式。
+          label:
+            en_US: Output format
+            ja_JP: Output format
+            pt_BR: Output format
+            zh_Hans: 输出格式
+          llm_description: ''
+          max: null
+          min: null
+          name: format
+          options:
+          - icon: ''
+            label:
+              en_US: JSON
+              ja_JP: JSON
+              pt_BR: JSON
+              zh_Hans: JSON
+            value: json
+          - icon: ''
+            label:
+              en_US: CSV
+              ja_JP: CSV
+              pt_BR: CSV
+              zh_Hans: CSV
+            value: csv
+          - icon: ''
+            label:
+              en_US: YAML
+              ja_JP: YAML
+              pt_BR: YAML
+              zh_Hans: YAML
+            value: yaml
+          - icon: ''
+            label:
+              en_US: Markdown
+              ja_JP: Markdown
+              pt_BR: Markdown
+              zh_Hans: Markdown
+            value: md
+          - icon: ''
+            label:
+              en_US: Excel
+              ja_JP: Excel
+              pt_BR: Excel
+              zh_Hans: Excel
+            value: xlsx
+          - icon: ''
+            label:
+              en_US: HTML
+              ja_JP: HTML
+              pt_BR: HTML
+              zh_Hans: HTML
+            value: html
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+            ja_JP: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+            pt_BR: 'Optional. For example {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              More connection options can be found at https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+            zh_Hans: '选填项。例如 {"connect_args": {"ssl": {"ca": "/path/to/ca.pem"}}}
+
+              更多连接选项可参考 https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine
+
+              '
+          label:
+            en_US: DB Config Options
+            ja_JP: DB Config Options
+            pt_BR: DB Config Options
+            zh_Hans: 数据库连接配置选项
+          llm_description: ''
+          max: null
+          min: null
+          name: config_options
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          config_options: ''
+          db_uri: ''
+          format: ''
+          query: ''
+        provider_id: hjlarry/database/database
+        provider_name: hjlarry/database/database
+        provider_type: builtin
+        selected: false
+        title: user_name - SQL Execute
+        tool_configurations:
+          config_options:
+            type: mixed
+            value: null
+          format:
+            type: constant
+            value: json
+        tool_description: This tool is used to execute SQL in an existing database.
+        tool_label: SQL Execute
+        tool_name: sql_execute
+        tool_node_version: '2'
+        tool_parameters:
+          db_uri:
+            type: mixed
+            value: null
+          query:
+            type: mixed
+            value: 'SELECT name
+
+              FROM users_preferences
+
+              WHERE id = {{#1711528708197.user#}}
+
+              LIMIT 1;'
+        type: tool
+      height: 115
+      id: '1755485306309'
+      position:
+        x: 898.3588891010246
+        y: 1043.3296361337998
+      positionAbsolute:
+        x: 898.3588891010246
+        y: 1043.3296361337998
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: empty
+            id: 9887692a-210c-4d24-824a-fbd5b32b0df4
+            value: ''
+            varType: string
+            variable_selector:
+            - conversation
+            - user_name
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: IF/ELSE 4
+        type: if-else
+      height: 125
+      id: '1755485347584'
+      position:
+        x: 1676.4252059012404
+        y: 813.5388553454704
+      positionAbsolute:
+        x: 1676.4252059012404
+        y: 813.5388553454704
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        selected: false
+        template: '{% set res = arg1[0].result | default() %}{% if res[0] is defined
+          %}{{res[0].name}}{% else %}{% endif %}'
+        title: Template 4
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1755485306309'
+          - json
+          value_type: array[object]
+          variable: arg1
+      height: 53
+      id: '1755485599291'
+      position:
+        x: 1145.3066392814023
+        y: 813.5388553454704
+      positionAbsolute:
+        x: 1145.3066392814023
+        y: 813.5388553454704
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1755485599291'
+          - output
+          variable_selector:
+          - conversation
+          - user_name
+          write_mode: over-write
+        selected: false
+        title: Variable Assigner 4
+        type: assigner
+        version: '2'
+      height: 85
+      id: '1755485945172'
+      position:
+        x: 1404.6138040688659
+        y: 813.5388553454704
+      positionAbsolute:
+        x: 1404.6138040688659
+        y: 813.5388553454704
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        answer: '{{#1755485160335.text#}}'
+        desc: ''
+        selected: false
+        title: Answer 3
+        type: answer
+        variables: []
+      height: 103
+      id: '1755487466381'
+      position:
+        x: 2271.4102741493393
+        y: 1065.1250567677023
+      positionAbsolute:
+        x: 2271.4102741493393
+        y: 1065.1250567677023
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    viewport:
+      x: -380.9910877884795
+      y: -341.76062569790975
+      zoom: 0.4420839985655342

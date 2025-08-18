@@ -1,0 +1,11 @@
+All of these pormpts work perfectly in the v2 using gemini 2.5 Flash
+
+I want to buy some tech products, what do you recommed?
+
+Lets explore more dell products
+
+I woul like to see more mouse options, show me all of the list and give me the average cost of the products
+
+What is the computer, including laptops and desktops, with more ram?
+
+Based on my preferences, what is the most expensive product that i can buy?

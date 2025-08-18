@@ -1,43 +1,65 @@
 # Makers Tech Inventory Assistant  
 
-**Version 1** – Built with Dify and Gemini 2.5 Flash  
+**Version 2** – Built with **Dify** and **Gemini 2.5 Flash**  
+
+---
 
 ## 🚀 Overview  
-The **Makers Tech Inventory Assistant** is a conversational AI designed to help users explore and analyze the company’s technology inventory.  
-It provides clear, natural answers to queries about stock, prices, brands, and categories, while also suggesting next steps for further exploration.  
+The **Makers Tech Inventory Assistant** is a conversational AI that helps customers explore and analyze the company’s technology inventory in real time.  
+It not only answers questions about stock, prices, brands, and categories, but also provides **personalized recommendations** and **proactive suggestions** that make product discovery intuitive and engaging.  
+
+For Makers Tech, the assistant represents a powerful tool to **improve customer experience, increase product visibility, and drive sales efficiency**.  
+
+---
 
 ## ⚙️ Architecture  
 - **Model**: Gemini 2.5 Flash (Chat)  
 - **Strategy**: FunctionCalling  
 - **Active Tools**:  
-  - `SQL Execute`: Direct queries to the inventory database  
-  - `Get Table Schema`: Schema and data type validation  
-  - `WolframAlpha`: All mathematical operations (averages, sums, ratios, variance, etc.)  
+  - `SQL Execute`: Runs direct queries on the inventory database  
+  - `Get Table Schema`: Validates schema and data types  
+  - `WolframAlpha`: Handles all mathematical operations (averages, sums, ratios, variance, etc.)  
+
+---
 
 ## 📦 Database Schema  
-The `inventory` table contains the following fields:  
-- `id` (INT)  
-- `name` (TEXT)  
-- `brand` (TEXT) – valid values: Apple, Dell, HP, Lenovo, Asus, Acer, Samsung, LG, Sony, Logitech, Razer, Corsair, HyperX, Kingston, Seagate, Western Digital, NVIDIA, AMD, Intel, TP-Link, Netgear, Canon, Epson, Xiaomi, Huawei, MSI, Gigabyte  
-- `category` (TEXT) – valid values: Laptop, Desktop, Monitor, Keyboard, Mouse, Headphones, Smartphone, Tablet, Smartwatch, Printer, Router, SSD, HDD, GPU, CPU, Motherboard, Power Supply, Case, Webcam, Microphone, Speakers, Docking Station, Charger, Cable, Chair, Gaming Console, VR Headset  
-- `price` (FLOAT, USD)  
-- `stock` (INT)  
-- `features` (TEXT)  
+The `inventory` table includes:  
+
+- `id` (INT) – Unique identifier  
+- `name` (TEXT) – Product name  
+- `brand` (TEXT) – Supported values include Apple, Dell, HP, Lenovo, Asus, Acer, Samsung, LG, Sony, Logitech, Razer, Corsair, HyperX, Kingston, Seagate, Western Digital, NVIDIA, AMD, Intel, TP-Link, Netgear, Canon, Epson, Xiaomi, Huawei, MSI, Gigabyte  
+- `category` (TEXT) – Examples: Laptop, Desktop, Monitor, Mouse, GPU, CPU, Smartphone, VR Headset, Printer, Router, Tablet, etc.  
+- `price` (FLOAT, USD) – Product price  
+- `stock` (INT) – Quantity available  
+- `features` (TEXT) – Additional specifications  
+
+---
+
+## ✨ Key Features (Version 2)  
+- **Personalized Recommendations**  
+  - Matches user’s preferred **brand**, **category**, and **budget**.  
+  - Provides up to 5 items per list (top within budget, by brand, by category).  
+  - Deduplicated and ranked for quality results.  
+
+- **Proactive Guidance**  
+  - Suggests follow-up queries such as:  
+    - *“Would you like to see the cheapest option?”*  
+    - *“Do you want to explore products from another brand?”*  
+    - *“Shall I show you which items are running low in stock?”*  
+
+- **Smart Fallbacks**  
+  - If no product matches perfectly, the assistant proposes alternatives (e.g., slightly above budget or similar category).  
+
+- **Mathematical Analysis**  
+  - Uses WolframAlpha for operations like averages, totals, and price comparisons.  
+  - Example: *“The average cost of all mouse products is $145.01.”*  
+
+---
 
 ## 💡 Example Queries  
-- *How many laptops are in stock?*  
-- *What is the most expensive desktop?*  
-- *What is the average cost of mouse items?*  
-- *What is the total stock of Huawei products?*  
-- *If I sell all cables, how much revenue will I get?*  
+- *Based on my preferences, what is the most expensive product that i can buy?.*  
+- *Show me all Dell items currently in stock.*  
+- *What is the average cost of mouse products?*  
+- *How many laptops are available from HP?*  
+- *Which products are running low in stock?*  
 
-## ✨ Key Features  
-- Natural language answers that are clear and concise  
-- Mandatory use of WolframAlpha for all math operations  
-- Follow-up suggestions after every answer (e.g., *“Would you like me to also show you the cheapest option?”*)  
-
-## 🔮 Roadmap  
-- **Version 2 (future release):**  
-  - User personalization  
-  - Advanced filtering (e.g., laptops over $1,000 with stock > 10)  
-  - Recommendation system based on user preferences  
